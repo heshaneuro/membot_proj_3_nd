@@ -16,6 +16,9 @@ private:
     // data handles (not owned)
     GraphNode *_currentNode;
     GraphNode *_rootNode;
+    //std::shared_ptr<GraphNode> _currentNode;
+    //std::shared_ptr<GraphNode> _rootNode;
+    
     ChatLogic *_chatLogic;
 
     // proprietary functions
@@ -29,6 +32,17 @@ public:
 
     //// STUDENT CODE
     ////
+    //copy constructor
+    ChatBot(const ChatBot &source);
+
+    //move constructor
+    ChatBot(ChatBot &&source);
+
+    //copy assignment operator overloading
+    ChatBot &operator=(const ChatBot &source);
+
+    //move assignment operator overloading
+    ChatBot &operator=(ChatBot &&source);
 
     ////
     //// EOF STUDENT CODE
@@ -36,6 +50,10 @@ public:
     // getters / setters
     void SetCurrentNode(GraphNode *node);
     void SetRootNode(GraphNode *rootNode) { _rootNode = rootNode; }
+    //void SetCurrentNode(std::shared_ptr<GraphNode> node);
+    //void SetRootNode(std::shared_ptr<GraphNode> rootNode) { _rootNode = rootNode; }
+    
+    
     void SetChatLogicHandle(ChatLogic *chatLogic) { _chatLogic = chatLogic; }
     wxBitmap *GetImageHandle() { return _image; }
 
